@@ -15,7 +15,7 @@
   ],
   "scripts": {
     "app:dev": "nodemon -e ts",
-    "app": "ts-node ./src/app.ts",
+    "app": "ts-node ./src/thread.ts",
     "lint": "eslint '*/**/*.{js,ts}' --quiet --fix"
   },
   "repository": {
