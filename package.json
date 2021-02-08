@@ -1,0 +1,26 @@
+{
+  "name": "facebook-ann",
+  "version": "1.0.0",
+  "description": "Multifunctional bot capable of conducting valuable conversations with users thanks to integration with natural language processing and machine learning solutions.",
+  "author": "Aleksander Szołowicz <aleksander.szolowicz@gmail.com> (https://github.com/Lumm1t)",
+  "license": "MIT",
+  "keywords": [
+    "facebook bot",
+    "natural language processing",
+    "machine learning",
+    "artificial neural network",
+    "nlp",
+    "ml",
+    "anns"
+  ],
+  "scripts": {
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lumm1t/facebook-ann.git"
+  },
+  "homepage": "https://github.com/Lumm1t/facebook-ann#readme",
+  "bugs": {
+    "url": "https://github.com/Lumm1t/facebook-ann/issues"
+  }
+}
