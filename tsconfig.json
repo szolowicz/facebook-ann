@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "moduleResolution": "node",
+    "module": "esnext",
+    "target": "esnext",
+    "experimentalDecorators": true,
+    "strictNullChecks": true,
+    "typeRoots": ["node_modules/@types", "typings"]
+  },
+  "include": ["src/**/*.ts"]
+}
