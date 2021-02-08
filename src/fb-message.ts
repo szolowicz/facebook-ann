@@ -1,3 +1,4 @@
+import { download } from './image-classification'
 // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 const delay = async ms => new Promise(resolve => setTimeout(resolve, ms))
 
@@ -10,7 +11,7 @@ export default class Message {
       const MESSAGE_TIMEOUT = 1500
 
       if (event.attachments[0]?.type === 'photo') {
-        api.sendMessage(event.attachments[0].previewUrl, event.threadID)
+        void await download(event.attachments[0].previewUrl, api, event.threadID)
       } else {
         await delay(MESSAGE_TIMEOUT)
         api.markAsRead(event.threadID)
