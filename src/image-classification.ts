@@ -10,7 +10,7 @@ import path = require('path')
 export default class ImageClassification {
   private readonly IMAGES_DIRECTORY = '../images/'
 
-  public async download (url, api, threadID): Promise<void> {
+  public async start (url, api, threadID): Promise<void> {
     const RANDOM_HASH = Math.random().toString(36).slice(7) + '.jpg'
     const IMAGE_PATH = path.resolve(__dirname, this.IMAGES_DIRECTORY + RANDOM_HASH)
 
@@ -32,7 +32,7 @@ export default class ImageClassification {
         message += `• ${element.className} -> ${element.probability.toPrecision(2)}%\n\n`
       }
 
-      translate(message, { to: 'pl' }).then(response => {
+      translate(message, { to: 'pl' }).then((response) => {
         api.sendMessage(response.text, threadID)
       }).catch(error => {
         console.error(error)
