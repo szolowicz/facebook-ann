@@ -1,6 +1,7 @@
 import * as mobilenet from '@tensorflow-models/mobilenet'
 import * as tf from '@tensorflow/tfjs'
 import * as tfnode from '@tensorflow/tfjs-node'
+import * as translate from '@vitalets/google-translate-api'
 import * as fs from 'fs'
 import * as fetch from 'node-fetch'
 
@@ -24,8 +25,17 @@ export async function download (url, api, threadID): Promise<void> {
     const MobileNetModel = await mobilenet.load()
     // @ts-expect-error
     const prediction = await MobileNetModel.classify(image)
-    console.log(prediction)
-    api.sendMessage(prediction[0].className, threadID)
+
+    let message = ''
+    for (const element of prediction) {
+      message += `• ${element.className} -> ${element.probability.toPrecision(2)}%\n\n`
+    }
+
+    translate(message, { to: 'pl' }).then(response => {
+      api.sendMessage(response.text, threadID)
+    }).catch(error => {
+      console.error(error)
+    })
 
     await fs.unlinkSync(IMAGE_PATH)
   })
