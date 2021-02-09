@@ -1,8 +1,10 @@
-import { download } from './image-classification'
+import ImageClassification from './image-classification'
 // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 const delay = async ms => new Promise(resolve => setTimeout(resolve, ms))
 
 export default class Message {
+  private readonly image_classification = new ImageClassification()
+
   public listenForMessages (api): void {
     api.listenMqtt(async (error_, event) => {
       if (event.type !== 'message') return
@@ -19,7 +21,7 @@ export default class Message {
       await delay(MESSAGE_TIMEOUT)
 
       if (event.attachments[0]?.type === 'photo') {
-        void await download(event.attachments[0].previewUrl, api, event.threadID)
+        void await this.image_classification.download(event.attachments[0].previewUrl, api, event.threadID)
       } else {
         api.sendMessage(event.body, event.threadID)
       }
