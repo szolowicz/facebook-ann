@@ -10,16 +10,17 @@ export default class Message {
 
       const MESSAGE_TIMEOUT = 1500
 
+      await delay(MESSAGE_TIMEOUT)
+      api.markAsRead(event.threadID)
+
+      await delay(MESSAGE_TIMEOUT)
+      api.sendTypingIndicator(event.threadID)
+
+      await delay(MESSAGE_TIMEOUT)
+
       if (event.attachments[0]?.type === 'photo') {
         void await download(event.attachments[0].previewUrl, api, event.threadID)
       } else {
-        await delay(MESSAGE_TIMEOUT)
-        api.markAsRead(event.threadID)
-
-        await delay(MESSAGE_TIMEOUT)
-        api.sendTypingIndicator(event.threadID)
-
-        await delay(MESSAGE_TIMEOUT)
         api.sendMessage(event.body, event.threadID)
       }
     })
