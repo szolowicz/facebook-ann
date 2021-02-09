@@ -1,11 +1,10 @@
 import * as mobilenet from '@tensorflow-models/mobilenet'
-import * as tf from '@tensorflow/tfjs'
 import * as tfnode from '@tensorflow/tfjs-node'
 import * as translate from '@vitalets/google-translate-api'
 import * as fs from 'fs'
 import * as fetch from 'node-fetch'
-
 import path = require('path')
+import googleTranslateApi = require('@vitalets/google-translate-api')
 
 export default class ImageClassification {
   private readonly IMAGES_DIRECTORY = '../images/'
@@ -32,13 +31,24 @@ export default class ImageClassification {
         message += `• ${element.className} -> ${element.probability.toPrecision(2)}%\n\n`
       }
 
-      translate(message, { to: 'pl' }).then((response) => {
-        api.sendMessage(response.text, threadID)
-      }).catch(error => {
-        console.error(error)
-      })
+      await this.prepareResponse(message, threadID, api)
 
       await fs.unlinkSync(IMAGE_PATH)
     })
+  }
+
+  // eslint-disable-next-line @typescript-eslint/no-invalid-void-type
+  private async prepareResponse (message: string, threadID, api): Promise<googleTranslateApi.ITranslateResponse | void> {
+    return translate(message, { to: 'pl' })
+      .then((response) => {
+        this.sendResponse(response.text, threadID, api)
+      })
+      .catch(error => {
+        console.error(error)
+      })
+  }
+
+  private sendResponse (message, threadID, api): void {
+    api.sendMessage(message, threadID)
   }
 }
