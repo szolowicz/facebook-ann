@@ -4,7 +4,6 @@ import * as translate from '@vitalets/google-translate-api'
 import * as fs from 'fs'
 import * as fetch from 'node-fetch'
 import path = require('path')
-import googleTranslateApi = require('@vitalets/google-translate-api')
 
 export default class ImageClassification {
   private readonly IMAGES_DIRECTORY = '../images/'
