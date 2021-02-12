@@ -37,15 +37,10 @@ export default class ImageClassification {
     })
   }
 
-  // eslint-disable-next-line @typescript-eslint/no-invalid-void-type
-  private async prepareResponse (message: string, threadID, api): Promise<googleTranslateApi.ITranslateResponse | void> {
+  private async prepareResponse (message: string, threadID, api): Promise<void> {
     return translate(message, { to: 'pl' })
-      .then((response) => {
-        this.sendResponse(response.text, threadID, api)
-      })
-      .catch(error => {
-        console.error(error)
-      })
+      .then((response) => this.sendResponse(response.text, threadID, api))
+      .catch(error => console.error(error))
   }
 
   private sendResponse (message, threadID, api): void {
