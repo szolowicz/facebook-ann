@@ -16,22 +16,35 @@ export default class Message {
       if (event.type !== 'message') return
       if (event.isGroup === true) return
 
-      // mark as read
-      await delay(this.MESSAGE_TIMEOUT)
-      api.markAsRead(event.threadID)
+      await this.markMessageAsRead(api, event.threadID)
 
-      // fake typing indicator
-      await delay(this.MESSAGE_TIMEOUT)
-      api.sendTypingIndicator(event.threadID)
+      await this.fakeTypingIndicator(api, event.threadID)
 
-      // message
-      await delay(this.MESSAGE_TIMEOUT)
-      if (event.attachments[0]?.type === 'photo') {
-        void await this.image_classification.start(event.attachments[0].previewUrl, api, event.threadID)
-      } else {
-        const message = await this.dialogflow.runSample(event.body)
-        api.sendMessage(message, event.threadID)
-      }
+      await this.sendResponse(api, event.threadID, event.attachments, event.body)
     })
+  }
+
+  private async markMessageAsRead (api, threadID): Promise<void> {
+    await delay(this.MESSAGE_TIMEOUT)
+
+    api.markAsRead(threadID)
+  }
+
+  private async fakeTypingIndicator (api, threadID): Promise<void> {
+    await delay(this.MESSAGE_TIMEOUT)
+
+    api.sendTypingIndicator(threadID)
+  }
+
+  private async sendResponse (api, threadID, attachments, body): Promise<void> {
+    await delay(this.MESSAGE_TIMEOUT)
+
+    if (attachments[0]?.type === 'photo') {
+      void await this.image_classification.start(attachments[0].previewUrl, api, threadID)
+    } else {
+      const message = await this.dialogflow.runSample(body)
+
+      api.sendMessage(message, threadID)
+    }
   }
 }
