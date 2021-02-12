@@ -3,17 +3,17 @@ import { v4 } from 'uuid'
 import path = require('path')
 
 export default class Dialogflow {
-  public async runSample (message: string): Promise<string> {
-    const sessionId = v4()
+  private sessionClient
+  private sessionPath
 
-    const sessionClient = new dialogflow.SessionsClient({
-      keyFilename: path.resolve(__dirname, '../dialogflow.json')
-    })
-    // @ts-expect-error
-    const sessionPath = sessionClient.projectAgentSessionPath(process.env.DF_PROJECT_ID, sessionId)
+  public async start (message: string, api, threadID): Promise<void> {
+    this.getSession()
+    void await this.getResponse(message, api, threadID)
+  }
 
+  private async getResponse (message: string, api, threadID): Promise<void> {
     const request = {
-      session: sessionPath,
+      session: this.sessionPath,
       queryInput: {
         text: {
           text: message,
@@ -22,13 +22,25 @@ export default class Dialogflow {
       }
     }
 
-    // Send request and log result
-    const responses = await sessionClient.detectIntent(request)
+    const responses = await this.sessionClient.detectIntent(request)
     const result = responses[0].queryResult
 
-    if (result === undefined || result === null) return ''
+    if (result === undefined || result === null) return
 
-    // @ts-expect-error
-    return result.fulfillmentText
+    this.sendResponse(result.fulfillmentText, threadID, api)
+  }
+
+  private getSession (): void {
+    const sessionId = v4()
+
+    this.sessionClient = new dialogflow.SessionsClient({
+      keyFilename: path.resolve(__dirname, '../dialogflow.json')
+    })
+
+    this.sessionPath = this.sessionClient.projectAgentSessionPath(process.env.DF_PROJECT_ID, sessionId)
+  }
+
+  private sendResponse (message, threadID, api): void {
+    api.sendMessage(message, threadID)
   }
 }

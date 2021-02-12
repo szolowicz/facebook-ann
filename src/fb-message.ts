@@ -42,9 +42,7 @@ export default class Message {
     if (attachments[0]?.type === 'photo') {
       void await this.image_classification.start(attachments[0].previewUrl, api, threadID)
     } else {
-      const message = await this.dialogflow.runSample(body)
-
-      api.sendMessage(message, threadID)
+      void await this.dialogflow.start(body, api, threadID)
     }
   }
 }
