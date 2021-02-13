@@ -9,6 +9,10 @@ export default class ImageClassification {
   private readonly IMAGES_DIRECTORY = path.resolve(__dirname, '../images/')
 
   public async start (url, api, threadID): Promise<void> {
+    await this.downloadPhoto(url, api, threadID)
+  }
+
+  private async downloadPhoto (url, api, threadID): Promise<void> {
     const RANDOM_HASH = Math.random().toString(36).slice(7) + '.jpg'
     const IMAGE_PATH = path.resolve(this.IMAGES_DIRECTORY + '/' + RANDOM_HASH)
 
