@@ -23,6 +23,14 @@ cd facebook-ann/
 yarn # or npm install
 ```
 
+Set correct environment variables:
+1. Rename `.env.example` to `.env`
+2. Open `.env` and change data.
+
+Set correct Dialogflow connection:
+1. Rename `dialogflow.json.example` to `dialogflow.json`
+2. Open `dialogflow.json` and change data.
+
 ## Run
 ```bash
 - Normal
