@@ -49,14 +49,10 @@ export default class ImageClassification {
   }
 
   private createFolder (): void {
-    if (!fs.existsSync(this.IMAGES_DIRECTORY)) {
-      fs.mkdirSync(this.IMAGES_DIRECTORY)
-    }
+    fs.mkdirSync(this.IMAGES_DIRECTORY, { recursive: true })
   }
 
   private removeFolder (): void {
-    if (fs.existsSync(this.IMAGES_DIRECTORY)) {
-      fs.rmdirSync(this.IMAGES_DIRECTORY, { recursive: true })
-    }
+    fs.rmdirSync(this.IMAGES_DIRECTORY, { recursive: true })
   }
 }
