@@ -12,6 +12,8 @@ but the accuracy of the matches was so great that hardly anyone from the researc
 * Bot recognizes the photos sent to it and replies with a message with what is in the photo.
 * Bot replies realistically thanks to manipulation of the typing indicator, the response time and random seed are taken into account.
 
+[<img width="700" src="https://i.imgur.com/Jf9gtXc.png" alt="facebook-ann">](https://i.imgur.com/Jf9gtXc.png)
+
 ## Prerequisites to build
 - [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/lang/en/)
 
