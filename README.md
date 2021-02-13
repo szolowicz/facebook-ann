@@ -31,6 +31,10 @@ Set correct Dialogflow connection:
 1. Rename `dialogflow.json.example` to `dialogflow.json`
 2. Open `dialogflow.json` and change data.
 
+Set correct bot response language:
+1. Open `src/dialogflow.ts` and change languageCode.
+2. Open `src/image-classification.ts` and change translate function.
+
 ## Run
 ```bash
 - Normal
