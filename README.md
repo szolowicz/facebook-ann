@@ -1,6 +1,6 @@
 # facebook-ann
 
-A multifunctional bot capable of conducting valuable conversations with users thanks to integration with natural language processing and machine learning solutions.
+A multifunctional Facebook bot capable of conducting valuable conversations with users thanks to integration with natural language processing and machine learning solutions.
 
 Bot can interpret messages sent by users and respond to them in accordance with the conversation model prepared and trained by the owner.
 In the solution tested by us in vivo, the bot served prepared, static responses to messages,
