@@ -32,17 +32,17 @@ export default class ImageClassification {
 
       await this.prepareResponse(message, threadID, api)
 
-      await fs.unlinkSync(IMAGE_PATH)
+      fs.unlinkSync(IMAGE_PATH)
     })
   }
 
   private async prepareResponse (message: string, threadID, api): Promise<void> {
     return translate(message, { to: 'pl' })
-      .then((response) => this.sendResponse(response.text, threadID, api))
+      .then((response) => ImageClassification.sendResponse(response.text, threadID, api))
       .catch(error => console.error(error))
   }
 
-  private sendResponse (message, threadID, api): void {
+  private static sendResponse (message, threadID, api): void {
     api.sendMessage(message, threadID)
   }
 }

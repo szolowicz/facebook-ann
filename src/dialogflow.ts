@@ -27,7 +27,7 @@ export default class Dialogflow {
 
     if (result === undefined || result === null) return
 
-    this.sendResponse(result.fulfillmentText, threadID, api)
+    Dialogflow.sendResponse(result.fulfillmentText, threadID, api)
   }
 
   private getSession (): void {
@@ -40,7 +40,7 @@ export default class Dialogflow {
     this.sessionPath = this.sessionClient.projectAgentSessionPath(process.env.DF_PROJECT_ID, sessionId)
   }
 
-  private sendResponse (message, threadID, api): void {
+  private static sendResponse (message, threadID, api): void {
     api.sendMessage(message, threadID)
   }
 }
