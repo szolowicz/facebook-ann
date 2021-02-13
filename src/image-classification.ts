@@ -6,15 +6,17 @@ import * as fetch from 'node-fetch'
 import path = require('path')
 
 export default class ImageClassification {
-  private readonly IMAGES_DIRECTORY = '../images/'
+  private readonly IMAGES_DIRECTORY = path.resolve(__dirname, '../images/')
 
   public async start (url, api, threadID): Promise<void> {
     const RANDOM_HASH = Math.random().toString(36).slice(7) + '.jpg'
-    const IMAGE_PATH = path.resolve(__dirname, this.IMAGES_DIRECTORY + RANDOM_HASH)
+    const IMAGE_PATH = path.resolve(this.IMAGES_DIRECTORY + '/' + RANDOM_HASH)
 
     // @ts-expect-error
     const response = await fetch(url)
     const buffer = await response.buffer()
+
+    this.createFolder()
 
     /* eslint-disable @typescript-eslint/no-misused-promises */
     await fs.writeFile(IMAGE_PATH, buffer, async (): Promise<void> => {
@@ -32,7 +34,7 @@ export default class ImageClassification {
 
       await this.prepareResponse(message, threadID, api)
 
-      fs.unlinkSync(IMAGE_PATH)
+      this.removeFolder()
     })
   }
 
@@ -44,5 +46,17 @@ export default class ImageClassification {
 
   private static sendResponse (message, threadID, api): void {
     api.sendMessage(message, threadID)
+  }
+
+  private createFolder (): void {
+    if (!fs.existsSync(this.IMAGES_DIRECTORY)) {
+      fs.mkdirSync(this.IMAGES_DIRECTORY)
+    }
+  }
+
+  private removeFolder (): void {
+    if (fs.existsSync(this.IMAGES_DIRECTORY)) {
+      fs.rmdirSync(this.IMAGES_DIRECTORY, { recursive: true })
+    }
   }
 }
