@@ -39,7 +39,7 @@
     "@commitlint/cli": "^11.0.0",
     "@commitlint/config-conventional": "^11.0.0",
     "@google-cloud/dialogflow": "^3.3.0",
-    "@tensorflow-models/mobilenet": "^2.0.4",
+    "@tensorflow-models/mobilenet": "^2.1.0",
     "@tensorflow/tfjs": "^3.0.0",
     "@tensorflow/tfjs-node": "^3.1.0",
     "@types/node": "^14.14.28",
