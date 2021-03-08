@@ -42,7 +42,7 @@
     "@tensorflow-models/mobilenet": "^2.1.0",
     "@tensorflow/tfjs": "^3.2.0",
     "@tensorflow/tfjs-node": "^3.2.0",
-    "@types/node": "^14.14.31",
+    "@types/node": "^14.14.32",
     "@typescript-eslint/eslint-plugin": "^4.16.1",
     "@vitalets/google-translate-api": "^5.1.0",
     "dotenv": "^8.2.0",
