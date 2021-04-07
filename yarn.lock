@@ -380,10 +380,10 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
-"@google-cloud/dialogflow@^3.4.0":
-  version "3.4.0"
-  resolved "https://registry.yarnpkg.com/@google-cloud/dialogflow/-/dialogflow-3.4.0.tgz#1fd3b90e350a2df073b14577240136603e96e9a8"
-  integrity sha512-DaS751ZEfq+c/1V2J8zH/mQOOwK0Gpzm8XrIln3yYxHC+47UXz6B8+KkuXSwYwT1FlSrS0h8B/OpsbiZs45lgg==
+"@google-cloud/dialogflow@^3.5.0":
+  version "3.5.0"
+  resolved "https://registry.yarnpkg.com/@google-cloud/dialogflow/-/dialogflow-3.5.0.tgz#189c280dffa3bddb3e9bc6eec8b7e0b3270b2868"
+  integrity sha512-uzcvwzgzGsMiK9eGyDdmMJO/y1xooa5zpbtomXQL+nyAHy78Duc7Ns7e70byK/ItxucJijfgJJs5Lbcq9XElIQ==
   dependencies:
     google-gax "^2.9.2"
     protobufjs "^6.8.9"
