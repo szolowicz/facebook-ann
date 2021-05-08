@@ -45,7 +45,7 @@
     "@types/node": "^15.0.1",
     "@typescript-eslint/eslint-plugin": "^4.22.0",
     "@vitalets/google-translate-api": "^7.0.0",
-    "dotenv": "^8.2.0",
+    "dotenv": "^9.0.0",
     "eslint": "^7.24.0",
     "eslint-config-standard-with-typescript": "^20.0.0",
     "eslint-plugin-import": "^2.22.1",
