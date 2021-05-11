@@ -43,7 +43,7 @@
     "@tensorflow/tfjs": "^3.4.0",
     "@tensorflow/tfjs-node": "^3.6.1",
     "@types/node": "^15.0.2",
-    "@typescript-eslint/eslint-plugin": "^4.22.1",
+    "@typescript-eslint/eslint-plugin": "^4.23.0",
     "@vitalets/google-translate-api": "^7.0.0",
     "dotenv": "^9.0.0",
     "eslint": "^7.26.0",
