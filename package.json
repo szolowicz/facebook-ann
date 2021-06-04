@@ -40,7 +40,7 @@
     "@commitlint/config-conventional": "^12.1.4",
     "@google-cloud/dialogflow": "^3.5.0",
     "@tensorflow-models/mobilenet": "^2.1.0",
-    "@tensorflow/tfjs": "^3.4.0",
+    "@tensorflow/tfjs": "^3.7.0",
     "@tensorflow/tfjs-node": "^3.6.1",
     "@types/node": "^15.9.0",
     "@typescript-eslint/eslint-plugin": "^4.26.0",
