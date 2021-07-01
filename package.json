@@ -38,7 +38,7 @@
   "devDependencies": {
     "@commitlint/cli": "^12.1.4",
     "@commitlint/config-conventional": "^12.1.4",
-    "@google-cloud/dialogflow": "^4.1.0",
+    "@google-cloud/dialogflow": "^4.1.1",
     "@tensorflow-models/mobilenet": "^2.1.0",
     "@tensorflow/tfjs": "^3.4.0",
     "@tensorflow/tfjs-node": "^3.7.0",

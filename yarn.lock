@@ -379,12 +379,12 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
-"@google-cloud/dialogflow@^4.1.0":
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/@google-cloud/dialogflow/-/dialogflow-4.1.0.tgz#63de7d429d45c4577b978e1dc32d64febf1cdeba"
-  integrity sha512-aQOZzlOss9EBuu3FeDdPGRSju0IxTlREh9TwOYiZpBwD97fBhfDObWQTMsUTdZUytYzYsTpVFTxa/lUE71zX/w==
+"@google-cloud/dialogflow@^4.1.1":
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/@google-cloud/dialogflow/-/dialogflow-4.1.1.tgz#acdbbc34e9d3aed8259433de949eec8ed736a9f3"
+  integrity sha512-iK6fKI7CABKD+7ypDmd8FNf6PCMnILwfUlXMdnmX9m7aRXA9jHHha3U4p7oMauqjPT4AOJOv8P7zaLrAROv5gA==
   dependencies:
-    google-gax "^2.12.0"
+    google-gax "^2.17.0"
     protobufjs "^6.8.9"
 
 "@grpc/grpc-js@~1.3.0":
@@ -2628,10 +2628,10 @@ google-auth-library@^7.0.2:
     jws "^4.0.0"
     lru-cache "^6.0.0"
 
-google-gax@^2.12.0:
-  version "2.15.0"
-  resolved "https://registry.yarnpkg.com/google-gax/-/google-gax-2.15.0.tgz#e753489a0ccbd7d4fd5c24979cbd5bf491ff2ec3"
-  integrity sha512-jfShUgX1DVu+DiOeAcsT5JbWlLdUnb2FsdWRb+Q/pNz6kNAUbmq8sFLB2uaWjlTxoSGHZLfrt3vJ9lpArzzQPA==
+google-gax@^2.17.0:
+  version "2.17.0"
+  resolved "https://registry.yarnpkg.com/google-gax/-/google-gax-2.17.0.tgz#363791efaca3bd242e34e92295937e9215666d17"
+  integrity sha512-Ze/Oq0atVNKyKvDzQFU8B82V9w36GELQruXGsiY1jnySbieZ9vS75v98V/Z10PktmSVqis4sQ+FwK2gkgwIiiw==
   dependencies:
     "@grpc/grpc-js" "~1.3.0"
     "@grpc/proto-loader" "^0.6.1"
