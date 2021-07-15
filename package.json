@@ -41,7 +41,7 @@
     "@google-cloud/dialogflow": "^4.1.2",
     "@tensorflow-models/mobilenet": "^2.1.0",
     "@tensorflow/tfjs": "^3.8.0",
-    "@tensorflow/tfjs-node": "^3.7.0",
+    "@tensorflow/tfjs-node": "^3.8.0",
     "@types/node": "^16.3.2",
     "@typescript-eslint/eslint-plugin": "^4.28.3",
     "@vitalets/google-translate-api": "^7.0.0",
