@@ -392,10 +392,10 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
-"@google-cloud/dialogflow@^4.2.0":
-  version "4.2.0"
-  resolved "https://registry.yarnpkg.com/@google-cloud/dialogflow/-/dialogflow-4.2.0.tgz#629d301a8fe06ec2d0b3e78a5cea76c053845326"
-  integrity sha512-Ifp/FL1jUCFPlYzSxBr8TFMez8oR6FoHju7Z+wLLeGzxpOug2f+jJeMnllEWgRTyi1BBNM6lKjnzEF3CHc+3Mg==
+"@google-cloud/dialogflow@^4.3.0":
+  version "4.3.0"
+  resolved "https://registry.yarnpkg.com/@google-cloud/dialogflow/-/dialogflow-4.3.0.tgz#59f72ac2bf335bde44bebd1837ae5d84c134b2b8"
+  integrity sha512-C6kT9L46geekW1FnAxWKDdyWVeN8QqEVTxPC2M8dOrTgRYreNqulz1b3Ow/yAm+Oh6k0rk08ZizfoLSoc0rONg==
   dependencies:
     google-gax "^2.17.1"
     protobufjs "^6.8.9"
